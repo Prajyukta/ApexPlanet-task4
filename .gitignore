@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+*.pkl
+data/processed/*.csv
+figures/**/*.png
+models/*.pkl
+
+# Keep the generated task deliverables in version control.
+!data/processed/*.csv
+!figures/**/*.png
+!models/*.pkl
