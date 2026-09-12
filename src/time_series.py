@@ -16,7 +16,7 @@ def prepare_weekly_sales(data: pd.DataFrame) -> pd.Series:
 
 def adf_report(series: pd.Series) -> dict[str, Any]:
     """Return ADF test outputs in a serializable form."""
-    result = adfuller(series.dropna(), autolag="AIC")
+    result = adfuller(series.dropna(), autolag="AIC", result_object=False)
     return {"statistic": float(result[0]), "p_value": float(result[1]), "critical_values": {key: float(value) for key, value in result[4].items()}, "stationary": bool(result[1] < .05)}
 
 def forecast_sales(weekly: pd.Series, horizon: int = 12, figure_path: str | Path | None = None) -> dict[str, Any]:
